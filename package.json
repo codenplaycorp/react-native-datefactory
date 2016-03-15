@@ -1,0 +1,13 @@
+{
+    "name": "react-native-datefactory",
+    "version": "1.0",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/helderfarias/react-native-date.git"
+    },
+    "author": "Helder Farias",
+    "peerDependencies": {
+        "react-native": ">=0.14.0"
+    }
+}
