@@ -10,6 +10,10 @@ import android.location.LocationManager;
 import android.location.Location;
 
 import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 import org.json.JSONObject;
 import org.json.JSONException;
@@ -30,7 +34,11 @@ public class DateFactoryModule extends ReactContextBaseJavaModule {
         try {
             Date fromLocation = getDateFromLocation();
 
-            JSONObject jsonObject = new JSONObject().put("date", fromLocation);
+            TimeZone tz = TimeZone.getTimeZone("UTC");
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mmZ");
+            df.setTimeZone(tz);
+
+            JSONObject jsonObject = new JSONObject().put("date", df.format(new Date()));
 
             success.invoke(jsonObject.getString("date"));
         } catch (JSONException ex){
