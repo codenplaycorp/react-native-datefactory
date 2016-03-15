@@ -1,6 +1,7 @@
 'use strict';
 
-import DateFactoryPlugin from './lib/datefactory.js';
+var { NativeModules } = require('react-native');
+var DateFactoryPlugin = NativeModules.DateFactoryAndroid;
 
 let DateFactory = {
 

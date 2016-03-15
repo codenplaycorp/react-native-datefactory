@@ -1,7 +1,7 @@
 {
     "name": "react-native-datefactory",
     "version": "1.0.0",
-    "main": "index.js",
+    "main": "index.android.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/helderfarias/react-native-datefactory.git"
@@ -9,5 +9,10 @@
     "author": "Helder Farias",
     "peerDependencies": {
         "react-native": ">=0.14.0"
-    }
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/helderfarias/react-native-datefactory/issues"
+    },
+    "readmeFilename": "README.md"
 }
