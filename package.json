@@ -1,6 +1,6 @@
 {
     "name": "react-native-datefactory",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "main": "index.android.js",
     "repository": {
         "type": "git",
