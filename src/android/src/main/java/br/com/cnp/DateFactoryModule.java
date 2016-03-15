@@ -27,20 +27,11 @@ public class DateFactoryModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void now(Callback success, Callback error) {
-        Date now = getDateFromLocation();
-
-        if (now != null) {
-            try {
-                JSONObject jsonObject = new JSONObject().put("date", now);
-                success.invoke(jsonObject.getString("date"));
-            } catch (JSONException ex){
-                error.invoke("Internal error converting results:" + ex.getMessage());
-            }
-            return;
-        }
-
         try {
-            JSONObject jsonObject = new JSONObject().put("date", new Date());
+            Date fromLocation = getDateFromLocation();
+
+            JSONObject jsonObject = new JSONObject().put("date", fromLocation);
+
             success.invoke(jsonObject.getString("date"));
         } catch (JSONException ex){
             error.invoke("Internal error converting results:" + ex.getMessage());
@@ -54,7 +45,8 @@ public class DateFactoryModule extends ReactContextBaseJavaModule {
 
         Location location = locMan.getLastKnownLocation(LocationManager.KEY_LOCATION_CHANGED);
         if (location == null) {
-            return  null;
+            //fallback
+            return  new Date();
         }
 
         return new Date(location.getTime());
